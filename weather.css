@@ -1,0 +1,72 @@
+body{
+    background-image: url("./max-larochelle-uu-Jw5SunYI-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.h1a{
+    text-align: center;
+    font-family: 'Shalimar', cursive;
+    font-size: 61px;
+    font-weight: 600;
+    color: white;
+}
+.box{
+    margin-top: -13px;
+    text-align: center;
+}
+.inputbox{
+    width: 467px;
+    height: 48px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid rgb(5, 172, 178);
+    background-color: transparent;
+    color: antiquewhite;
+    font-size: 21px;
+    letter-spacing: 1px;
+    font-family: 'Electrolize', sans-serif;
+}
+::placeholder {
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+  }
+.btn1{
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-image: linear-gradient(45deg,rgb(143, 65, 110),#0dadb5);
+    width: 107px;
+    border: 0;
+    padding: 11px;
+    color: #FFFFFF;
+    font-size: 17px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+.btn1:hover{
+    background-image: linear-gradient(45deg,#3d3d3d,#a9cc0c);
+}
+.row{
+    text-align: center;
+    color: white;
+}
+.icon1{
+    color: red;
+}
+.icon2{
+    color: rgb(203, 92, 8);
+}
+.icon3{
+    color: #0dadb5;
+}
+/* .right{
+    text-align: justify;
+    margin-left: 138px;
+} */
+/* .a{
+    text-decoration: underline;
+} */

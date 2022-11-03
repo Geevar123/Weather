@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./weather.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Rajdhani:wght@300&family=Shalimar&display=swap');
+        </style>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+         <script src="https://kit.fontawesome.com/5356b8d9b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="Header">
+            <h1 class="h1a mt-5">Weather Today</h1><br>
+            <div class="box">
+                <form action="">
+                    <input id="weather" class="inputbox" type="text" placeholder="Search the city"><br>
+                    <button class="btn1 mt-3" type="button" onclick="search()">Search</button>
+                </form>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div><br>
+
+</body>
+<script>
+
+    function search() {
+
+        city = weather.value
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5b4bee0ba241d092159faf007e166080`).then(res => res.json()).then(data => displayDetails(data))
+
+    }
+
+    function displayDetails(weatherDetails) {
+
+        temperature = weatherDetails.main.temp
+        city_name = weatherDetails.name
+        temp = Math.floor(temperature - 273.15)
+        type =weatherDetails.weather[0].main
+        pressure = weatherDetails.main.pressure
+        humidity = weatherDetails.main.humidity
+        wind = weatherDetails.wind.speed
+        visibility = weatherDetails.visibility
+
+        htmlData = `
+        
+        <div class="row p-5 mt-5 text-white" style="height: 400px; font-family: 'Electrolize', sans-serif;" >
+        <div class="col-lg-5 col-md-6 col-sm-12 ">
+            <h4> <i class="icon1 fa-sharp fa-solid fa-location-dot fs-5">  &nbsp</i>${city_name}</h4> <br>
+            <h1 class="ms-5" style="font-size: 90px;"  > <i class="icon2  fa-solid fa-temperature-three-quarters fs-1"></i> ${temp}°<span style="font-size:large;">C</span></h1>
+            <h3 class="mt-4 ms-5 ps-3">  ${type} </h3>
+        </div>
+        <div class=" right col-lg-7 col-md-6 col-sm-12 mt-5 w-50 " >
+            <h3> <i class="a icon3 fa-solid fa-wind"></i>Wind Speed: ${wind}km/hr</h3> <hr>
+            <h3 class="a">Humidity: ${humidity}%</h3> <hr>
+            <h3 class="a">Pressure: ${pressure}mb</h3> <hr>
+            <h3 class="a">Visibility: ${visibility}m</h3> <hr>
+        </div>
+    </div>
+        `
+        result.innerHTML = htmlData
+
+    }
+
+
+</script>
+</html>
